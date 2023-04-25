@@ -1,32 +1,20 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Iced from './assets/iced.png';
 import Lukewarm from './assets/lukewarm.png';
 import Piping from './assets/piping.png'
 
 
 interface SliderProps {
-  brew: number,
+  brew: number | undefined,
 }
 
 export default function Slider(props: SliderProps) {
 
-  const [value, setValue] = useState<number>(3);
-
-  
-
-
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setValue(Number(event.target.value))
-  }
+  //make sure that brew is accesible here every time it changes 
 
   useEffect(() => {
-    moveThumb(Number(value))
-  }, [value])
-
-
-
-
-
+    moveThumb(Number(props.brew));
+  }, [props.brew])
 
   function moveThumb(value: number) {
     const slider: HTMLElement | null = document.getElementById('temp-slider');
@@ -48,14 +36,7 @@ export default function Slider(props: SliderProps) {
         </div>
       </div>
    
-    </section>
-    <br></br>
-    <br></br>
-    <section className="">
-       <div id="sliderInput">
-       <input type="text" className="color-black" onChange={handleChange} placeholder="Input here"></input>
-       </div>
-    </section>
+    </section>  
   </div>
   )
 

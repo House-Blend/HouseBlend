@@ -6,12 +6,15 @@ import Searchbar from './searchbar';
 import Background from './components/background';
 import { useState } from 'react';
 
+
+
 function App() {
 
   //state
   //function to change state
-  const [zip, setZip] = useState<number>();
-  const [brewScore, setBrewScore] = useState<number>();
+  const [zip, setZip] = useState<number | undefined>(0);
+  const [brewScore, setBrewScore] = useState<number | undefined >(0);
+
 
   return (
     <>
