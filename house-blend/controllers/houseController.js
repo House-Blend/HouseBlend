@@ -4,13 +4,13 @@ const houseController = {
     getHousePrice: async ( req, res, next ) => {
       console.log('Inside getMedian Func')
         try {
-          //const {zipcode} = req.body
+          const { zipCode } = req.params;
 
           const options = {
             method: 'GET',
             url: 'https://us-real-estate.p.rapidapi.com/v2/for-sale-by-zipcode',
             params: {
-              zipcode: '20002',
+              zipcode: `${zipCode}`,
               offset: '0',
               limit: '42',
             },

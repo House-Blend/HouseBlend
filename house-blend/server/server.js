@@ -16,11 +16,11 @@ app.use(express.json());
 // })
 
 
-app.get('/coffee', coffeeShopController.getCoffeeShops, (req, res) => {
+app.get('/coffee/:zipCode', coffeeShopController.getCoffeeShops, (req, res) => {
     return res.status(200).json(res.locals.totalCoffeeShops);
 })
 
-app.get('/housing', houseController.getHousePrice, (req,res) => {
+app.get('/housing/:zipCode', houseController.getHousePrice, (req,res) => {
     return res.sendStatus(200);
 })
 

@@ -6,11 +6,10 @@ dotenv.config();
 const coffeeShopController = {
 
     getCoffeeShops: async (req, res, next) => {
-    
-        // const { zipCode } = req.body;
+        const { zipCode } = req.params;
         const endpoint = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
         const params = {
-            query: `coffee shops in 10016`, 
+            query: `coffee shops in ${zipCode}`, 
             key: process.env.MAPS_API_KEY, 
         }; 
             
@@ -18,8 +17,8 @@ const coffeeShopController = {
             .then(response => {
                 // Process the response data
                 const coffeeShops = response.data.results;
-                // console.log('coffee shops returned', coffeeShops);
-                // console.log('total number of coffeeshops', Object.keys(coffeeShops).length);
+                console.log('coffee shops returned', coffeeShops);
+                console.log('total number of coffeeshops', Object.keys(coffeeShops).length);
                 res.locals.totalCoffeeShops = Object.keys(coffeeShops).length;
                 return next();
             })
