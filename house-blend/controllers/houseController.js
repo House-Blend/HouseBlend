@@ -1,22 +1,25 @@
 import axios from 'axios';
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const houseController = {
     getHousePrice: async ( req, res, next ) => {
       console.log('Inside getMedian Func')
         try {
-          //const {zipcode} = req.body
+          const { zipCode } = req.params;
 
           const options = {
             method: 'GET',
             url: 'https://us-real-estate.p.rapidapi.com/v2/for-sale-by-zipcode',
             params: {
-              zipcode: '20002',
+              zipcode: `${zipCode}`,
               offset: '0',
               limit: '42',
             },
             headers: {
               'content-type': 'application/octet-stream',
-              'X-RapidAPI-Key': 'e954138f77msh85c3856650929f4p189b71jsndfb63a0d5b55',
+              'X-RapidAPI-Key': `${process.env.HOUSE_API_KEY}`,
               'X-RapidAPI-Host': 'us-real-estate.p.rapidapi.com'
             }
           };
