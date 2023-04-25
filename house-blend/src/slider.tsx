@@ -21,8 +21,8 @@ export default function Slider() {
   }
 
   return (
-  <div className="flex flex-col">
-    <section className="max-w-7xl bg-sky-300">
+  <div className="flex h-80">
+    <section className="bg-sky-300">
       <div className="slider-container">
         <input type="range" min="0" max="15" step="1" className="slider" id="temp-slider" />
         <div className="range-container">
