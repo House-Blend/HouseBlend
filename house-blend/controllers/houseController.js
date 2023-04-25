@@ -1,9 +1,8 @@
 import axios from 'axios';
 
-
 const houseController = {
-    getHousePrice: async (req,res,next) => {
-      console.log('Inside getMEdian Func')
+    getHousePrice: async ( req, res, next ) => {
+      console.log('Inside getMedian Func')
         try {
           //const {zipcode} = req.body
 
@@ -26,9 +25,7 @@ const houseController = {
         } catch (error) {
             console.error(error);
         }
-
     }
-
 }
 
 export default houseController;
