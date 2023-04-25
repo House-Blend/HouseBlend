@@ -63,33 +63,30 @@
 .range-iced:before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 33.33%;
-  height: 100%;
-  background-color: #0099ff;
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 33.33%;
+  height: 100%; */
   z-index: -1;
 }
 
 .range-lukewarm:before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 33.33%;
+  /* top: 0; */
+  /* left: 33.33%;
   width: 33.33%;
-  height: 100%;
-  background-color: #ffcc00;
+  height: 100%; */
   z-index: -1;
 }
 
 .range-piping:before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 66.66%;
+  /* top: 0; */
+  /* left: 66.66%;
   width: 33.33%;
-  height: 100%;
-  background-color: #ff3300;
+  height: 100%; */
   z-index: -1;
 }
 
@@ -106,3 +103,4 @@
   left: var(--thumb-position, 0);
   transform: translate(-50%, -50%);
 }
+
