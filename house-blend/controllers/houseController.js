@@ -1,4 +1,7 @@
 import axios from 'axios';
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const houseController = {
     getHousePrice: async ( req, res, next ) => {
@@ -16,7 +19,7 @@ const houseController = {
             },
             headers: {
               'content-type': 'application/octet-stream',
-              'X-RapidAPI-Key': 'e954138f77msh85c3856650929f4p189b71jsndfb63a0d5b55',
+              'X-RapidAPI-Key': `${process.env.HOUSE_API_KEY}`,
               'X-RapidAPI-Host': 'us-real-estate.p.rapidapi.com'
             }
           };
