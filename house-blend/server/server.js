@@ -1,5 +1,8 @@
-import express from "express"
-import path from "path"
+///const express = require('express')
+import express from 'express'
+// const path = require('path');
+ //const {houseController} = require('../controllers/houseController.js')
+ import houseController from '../controllers/houseController.js'
 
 const app = express();
 const PORT = 3000;
@@ -7,11 +10,17 @@ const PORT = 3000;
 app.use(express.json());
 
 
+
+// app.use('/',(req,res) => {
+//   return res.send('HELLO')
+// })
+
+
 app.get('/coffee', (req,res) => {
     return res.sendStatus(200);
 })
 
-app.get('/housing', (req,res) => {
+app.get('/housing', houseController.getHousePrice, (req,res) => {
     return res.sendStatus(200);
 })
 
