@@ -1,7 +1,9 @@
 
 const Background = () => {
 return (
-    <div className="h-screen w-screen bg-almond"></div>
+    <div className="h-screen w-screen bg-almond">
+        
+    </div>
 )
 }
 
