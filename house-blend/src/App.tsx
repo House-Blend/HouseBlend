@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import  './styles/index.css';
 import Header from './components/header';
+import Background from './components/background';
+
 function App() {
 
   return (
     <>
      <Header></Header> 
+     <Background></Background>
     </>
   )
 }

@@ -5,9 +5,9 @@ return (
   <div className="container mx-auto flex items-center h-24">
     <a href="" className="flex items-center justify-center">
       <img className="h-16" src={houseBlendLogo} alt="" />
-      <span className="ml-4 uppercase font-black">House<br/>Blend</span>
+      <span className="ml-4 uppercase font-black text-almond">House<br/>Blend</span>
     </a>
-    <nav className="contents font-semibold text-black lg:text-lg">
+    <nav className="contents font-semibold text-almond lg:text-lg">
       <ul className="mx-auto flex items-center">
         <li className="p-5 xl:p-8 active">
           <a href="">
@@ -36,7 +36,7 @@ return (
         </li>
       </ul>
     </nav>
-    <button className="border border-white rounded-full font-bold px-8 py-2">Contact Us</button>
+    <button className="border border-white rounded-full font-bold text-almond px-8 py-2">Contact Us</button>
   </div>
 </header>
 )
