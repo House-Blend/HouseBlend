@@ -4,6 +4,8 @@ import express from 'express'
 //const {houseController} = require('../controllers/houseController.js')
 import houseController from '../controllers/houseController.js'
 import coffeeShopController from '../controllers/coffeeShopController.js'
+import censusController from '../controllers/censusController.js'
+
 
 const app = express();
 const PORT = 3000;
@@ -22,6 +24,10 @@ app.get('/coffee', coffeeShopController.getCoffeeShops, (req, res) => {
 
 app.get('/housing', houseController.getHousePrice, (req,res) => {
     return res.sendStatus(200);
+})
+
+app.get('/population', censusController.getPopulation, (req,res) => {
+  return res.sendStatus(200);
 })
 
 //GLOBAL ERROR HANDLER NEEDED.
