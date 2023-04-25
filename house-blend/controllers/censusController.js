@@ -6,11 +6,11 @@ dotenv.config();
 const censusController = {
     getPopulation: async(req,res,next)=> {
         console.log('Inside getPopulation Func')
-       // const {zipcode} = req.body
-       const zipcode = '11355'
+        const {zipCode} = req.params; 
+    //  const zipcode = '11355'
         try {
             
-            const endpoint = `https://service.zipapi.us/population/zipcode/${zipcode}/?X-API-KEY=${process.env.POPULATION_API_KEY}`
+            const endpoint = `https://service.zipapi.us/population/zipcode/${zipCode}/?X-API-KEY=${process.env.POPULATION_API_KEY}`
             const result = await axios.get(endpoint)
             console.log('populationData',result.data.data.population)
             const population = await result.data.data.population
