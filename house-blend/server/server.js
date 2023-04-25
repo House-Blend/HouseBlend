@@ -23,14 +23,6 @@ app.get('/coffee/:zipCode', coffeeShopController.getCoffeeShops, houseController
     return res.status(200).json(res.locals.houseBlend);
 })
 
-app.get('/housing/:zipCode', houseController.getHousePrice, (req,res) => {
-    return res.sendStatus(200);
-})
-
-app.get('/population/:zipCode', censusController.getPopulation, (req,res) => {
-  return res.sendStatus(200);
-})
-
 //GLOBAL ERROR HANDLER NEEDED.
 app.use((err, req, res, next) => {
     const defaultErr = {
