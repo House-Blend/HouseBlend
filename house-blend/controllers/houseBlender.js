@@ -7,7 +7,6 @@
  */
 
 /** 
- *  API DATA NEEDED:
  * Housblend TM Algo: 
  *  The houseblend store reflects the relationship between coffee shops, zip code population, and median home prices. 
  *  coffeeShopPerPerson variable reflects (Zip code population)/(Coffee shops in zip code)
