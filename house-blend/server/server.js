@@ -5,6 +5,7 @@ import express from 'express'
 import houseController from '../controllers/houseController.js'
 import coffeeShopController from '../controllers/coffeeShopController.js'
 import censusController from '../controllers/censusController.js'
+import houseBlender from '../controllers/houseBlender.js'
 
 
 const app = express();
@@ -18,16 +19,8 @@ app.use(express.json());
 // })
 
 
-app.get('/coffee', coffeeShopController.getCoffeeShops, (req, res) => {
-    return res.status(200).json(res.locals.totalCoffeeShops);
-})
-
-app.get('/housing', houseController.getHousePrice, (req,res) => {
-    return res.sendStatus(200);
-})
-
-app.get('/population', censusController.getPopulation, (req,res) => {
-  return res.sendStatus(200);
+app.get('/coffee/:zipCode', coffeeShopController.getCoffeeShops, houseController.getHousePrice, censusController.getPopulation, houseBlender, (req, res) => {
+    return res.status(200).json(res.locals.houseBlend);
 })
 
 //GLOBAL ERROR HANDLER NEEDED.

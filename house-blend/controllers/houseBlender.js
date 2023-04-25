@@ -16,11 +16,14 @@
  * 
  */
 
-export default function houseBlender(pop, coffeeShops, medPrice){
+export default function houseBlender(req, res, next){
+    //pop, coffeeShops, medPrice
+    const {totalCoffeeShops, population, avgHousePrice} = res.locals;
 
-    let coffeeShopPerPerson = pop / coffeeShops
-    let houseBlendScore = medPrice / coffeeShopPerPerson
+    let coffeeShopPerPerson = population / totalCoffeeShops
+    let houseBlendScore = avgHousePrice / coffeeShopPerPerson
 
-    return houseBlendScore.toFixed(2);
+    res.locals.houseBlend = (houseBlendScore/1000).toFixed(2);
+    return next();
 
 }
