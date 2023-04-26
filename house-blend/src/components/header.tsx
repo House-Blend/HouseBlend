@@ -1,4 +1,6 @@
 import houseBlendLogo from '../assets/houseBlendLogo.png';
+im
+
 const Header = () => {
 return (
     <header className="bg-sealBrown-100 text-white shadow-lg hidden md:block">

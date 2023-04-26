@@ -1,8 +1,9 @@
 import  './styles/index.css';
 import Header from './components/header';
 import Background from './components/background';
+import React, {FC} from 'react'
 
-function App() {
+const  App: FC = () => {
 
   return (
     <>

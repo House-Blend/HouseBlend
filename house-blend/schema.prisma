@@ -1,0 +1,52 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// model User {
+// id  Int @id @default(autoincrement())
+// username String @unique 
+// password String
+// zipcode Zipcode[]
+
+// }
+
+// model Zipcode {
+// id Int @id @default(autoincrement())
+// user User @relation(fields: [zipnum], references: [])
+// zipnum Int @unique
+// population Int
+// avg_house Int
+// coffee_shops Int
+// brew_score Int
+// }
+
+model User {
+id  Int @id @default(autoincrement())
+username String @unique 
+password String
+zipcode ZipcodeOnUser[]
+
+}
+
+model Zipcode {
+id Int @id @default(autoincrement())
+zipnum Int @unique
+population Int
+avg_house Int
+coffee_shops Int
+brew_score Int
+users ZipcodeOnUser[]
+}
+
+model ZipcodeOnUser {
+    user User @relation(fields:[userId], references: [id])
+    userId Int
+    zipcode Zipcode @relation(fields:[zipcodeId], references: [id])
+    zipcodeId Int
+    @@id([userId,zipcodeId])
+}
