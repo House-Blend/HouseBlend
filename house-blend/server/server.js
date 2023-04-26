@@ -6,12 +6,20 @@ import houseController from '../controllers/houseController.js'
 import coffeeShopController from '../controllers/coffeeShopController.js'
 import censusController from '../controllers/censusController.js'
 import houseBlender from '../controllers/houseBlender.js'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 
 const app = express();
-const PORT = 3000;
+const PORT = 5173; //if we run into an error: SWITCH THIS!!!
 
 app.use(express.json());
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.resolve(__dirname, '../dist')))
 
 
 // app.use('/',(req,res) => {
@@ -20,22 +28,22 @@ app.use(express.json());
 
 
 app.get('/coffee/:zipCode', coffeeShopController.getCoffeeShops, houseController.getHousePrice, censusController.getPopulation, houseBlender, (req, res) => {
-    return res.status(200).json(res.locals.houseBlend);
+  return res.status(200).json(res.locals.houseBlend);
 })
 
 //GLOBAL ERROR HANDLER NEEDED.
 app.use((err, req, res, next) => {
-    const defaultErr = {
-      log: "Express error handler caught unknown middleware error",
-      status: 500,
-      message: { err: "An error occurred" },
-    };
-    const errorObj = Object.assign({}, defaultErr, err);
-    return res
-      .status(errorObj.status)
-      .json({ message: errorObj.message });
-  });
+  const defaultErr = {
+    log: "Express error handler caught unknown middleware error",
+    status: 500,
+    message: { err: "An error occurred" },
+  };
+  const errorObj = Object.assign({}, defaultErr, err);
+  return res
+    .status(errorObj.status)
+    .json({ message: errorObj.message });
+});
 
 app.listen(PORT, () => {
-    console.log(`Server listening on port: ${PORT}...`);
-  });
+  console.log(`Server listening on port: ${PORT}...`);
+});

@@ -25,6 +25,13 @@ function App() {
       <div id="top">
         <Article />
       </div>
+
+      <div className="flex flex-col w-full lg:flex-row bg-almond">
+        <div className="grid flex-grow h-14 card bg-base-300 rounded-box place-items-center"></div> 
+        <div className="divider lg:divider-horizontal"></div> 
+        <div className="grid flex-grow h-14 card bg-base-300 rounded-box place-items-center"></div>
+      </div>
+
       <div id="mid" className="flex bg-almond">
         <Searchbar setZip={setZip} getZip={zip} setBrew={setBrewScore}/>
         <Slider brew={brewScore}/>

@@ -6,6 +6,7 @@ dotenv.config();
 const coffeeShopController = {
 
     getCoffeeShops: async (req, res, next) => {
+        console.log("These are the PARAMS:", req.params)
         const { zipCode } = req.params;
         const endpoint = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
         const params = {
