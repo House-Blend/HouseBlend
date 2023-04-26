@@ -20,12 +20,9 @@ export default function SearchBar(props: SearchBarProps) {
     console.log("Making an axios request with", zipcode)
     axios.get(`/coffee/${zipcode}`)
       .then(response => {
-        brewData = Number(response.data)
-      })
-      .then((response) => console.log("received data:", brewData, response))
-      .then((response) => {
+        brewData = response.data;
+        console.log("This is the brewData:", brewData);
         props.setBrew(brewData);
-        console.log(response)
       })
       .catch(error => {
         console.error(error);
@@ -34,14 +31,10 @@ export default function SearchBar(props: SearchBarProps) {
 
   return (
     <>
-      <section>
-        <h1>Enter the desired locatiion below</h1>
-        <h2>HouseBlend's algorithm will </h2>
-      </section>
       <section className="w-1/2 flex items-center justify-center border-r-2 border-sealBrown-100">
         <input type="text" placeholder="Enter location" className="rounded-full w-1/3 text-center" onChange={handleChange}></input>
         <button className="rounded-full mx-2.5 px-3 py-1 text-white bg-sealBrown-100 flex flex-row items-center" onClick={() => brew(Number(props.getZip))}>Brew<img src={CoffeeIcon} className="flex items-center h-6 w-6 mx-1"></img></button>
-        <button onClick={() => props.setBrew(11)}>TEST BUTTON</button>
+        {/* <button onClick={() => props.setBrew(11)}>TEST BUTTON</button> */}
       </section>
     </>
   )
