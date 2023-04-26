@@ -7,6 +7,13 @@ import Background from './components/background';
 import { useState } from 'react';
 
 
+// interface Data {
+//   totalCoffeeShops: number,
+//   zipCode: number,
+//   avgHousePrice: number,
+//   population: number,
+//   houseBlend: number
+// }
 
 function App() {
 
@@ -14,6 +21,13 @@ function App() {
   //function to change state
   const [zip, setZip] = useState<number | undefined>(0);
   const [brewScore, setBrewScore] = useState<number | undefined >(0);
+  // const [data, setData] = useState<number | undefined >({
+  //     totalCoffeeShops: 0,
+  //     zipCode: 0,
+  //     avgHousePrice: 0,
+  //     population: 0,
+  //     houseBlend: 0
+  // })
 
 
   return (
