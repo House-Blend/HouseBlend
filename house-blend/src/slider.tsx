@@ -26,6 +26,10 @@ export default function Slider(props: SliderProps) {
   return (
   <div className="flex flex-col w-1/2 h-80 justify-center items-center">
     <p>Location: New York, NY</p>
+    <p>Average Housing Price</p>
+    <p>Coffee Shops Present</p>
+    <p>Population</p>
+    <p>Brew Score</p>
     <section className="w-1/3">
       <div className="slider-container">
         <input type="range" min="0" max="20" step="1" className="slider" id="temp-slider" />
