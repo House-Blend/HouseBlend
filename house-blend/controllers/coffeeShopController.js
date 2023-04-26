@@ -1,7 +1,4 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const coffeeShopController = {
 
@@ -11,10 +8,10 @@ const coffeeShopController = {
         const endpoint = 'https://maps.googleapis.com/maps/api/place/textsearch/json';
         console.log("THIS IS OUR API KEY!!!:", process.env.MAPS_API_KEY)
         const params = {
-            query: `coffee shops in ${zipCode}`, 
+            query: `coffee shops in ${zipCode}`,
             // key: 'AIzaSyB2NOtIha_5L7Dj8ypS_eYK3Je1lRWrK6s',
-            key: process.env.MAPS_API_KEY, 
-        }; 
+            key: process.env.MAPS_API_KEY,
+        };
         console.log("These are the params for the Axios Get request:", params)
         axios.get(endpoint, { params })
             .then(response => {

@@ -9,10 +9,13 @@ import houseBlender from '../controllers/houseBlender.js'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import dbController from '../controllers/dbController.js'
+import dotenv from 'dotenv';
 
 
 const app = express();
 const PORT = 5173; //if we run into an error: SWITCH THIS!!!
+
+dotenv.config({ debug: true });
 
 app.use(express.json());
 
@@ -29,7 +32,7 @@ app.use(express.static(path.resolve(__dirname, '../dist')))
 
 
 app.get('/coffee/:zipCode', coffeeShopController.getCoffeeShops, houseController.getHousePrice, censusController.getPopulation, houseBlender, dbController.addZipToDB, (req, res) => {
-    return res.status(200).json(res.locals.houseBlend);
+  return res.status(200).json(res.locals.houseBlend);
 })
 
 //GLOBAL ERROR HANDLER NEEDED.
