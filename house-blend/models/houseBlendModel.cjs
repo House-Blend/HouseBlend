@@ -1,5 +1,7 @@
 const { Pool } = require('pg');
 
+// const { Pool } = require('pg');
+
 //SPENCER'S ELEPHANT SQL LINK: 'postgres://hkmcyhaj:G6KpLlRGlJ7BIT7cmSaVLDQphpk7Cvu2@lallah.db.elephantsql.com/hkmcyhaj'
 const PG_URI = 'postgres://ipivjrao:q9-fEBdfaIzyxrV2KJggLUdB-ae3wJ_T@raja.db.elephantsql.com/ipivjrao';
 
@@ -8,6 +10,14 @@ const pool = new Pool({
   connectionString: PG_URI
 });
 
+const db = {
+  query: (text, params, callback) => {
+    console.log('executed query', text);
+    return pool.query(text, params, callback);
+  }
+};
+
+module.exports = db;
 
 
 // SCHEMAS
@@ -35,13 +45,3 @@ const pool = new Pool({
 //ADD ADDITONAL ZIP CODES TO EXISTING USER
 // UPDATE table_name
 // SET column_name = column_name || ARRAY[new_integer];
-
-
-
-
-module.exports = {
-  query: (text, params, callback) => {
-    console.log('executed query', text);
-    return pool.query(text, params, callback);
-  }
-};

@@ -20,6 +20,7 @@ const coffeeShopController = {
                 console.log('coffee shops returned', coffeeShops);
                 console.log('total number of coffeeshops', Object.keys(coffeeShops).length);
                 res.locals.totalCoffeeShops = Object.keys(coffeeShops).length;
+                res.locals.zipCode = zipCode;
                 return next();
             })
             .catch(error => {
