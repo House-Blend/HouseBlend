@@ -18,9 +18,9 @@
  
 export default function houseBlender(req, res, next){
     //pop, coffeeShops, medPrice
-    const {totalCoffeeShops, population, avgHousePrice} = res.locals;
+    const {coffeeShops, population, avgHousePrice} = res.locals;
 
-    let brewer = population * avgHousePrice / totalCoffeeShops
+    let brewer = coffeeShops * avgHousePrice / population
     res.locals.houseBlend = (brewer/1000).toFixed(2);
 
     return next();
