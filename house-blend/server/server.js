@@ -8,6 +8,7 @@ import censusController from '../controllers/censusController.js'
 import houseBlender from '../controllers/houseBlender.js'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import dbController from '../controllers/dbController.js'
 
 
 const app = express();
@@ -24,11 +25,11 @@ app.use(express.static(path.resolve(__dirname, '../dist')))
 
 // app.use('/',(req,res) => {
 //   return res.send('HELLO')
-// })
+// }
 
 
-app.get('/coffee/:zipCode', coffeeShopController.getCoffeeShops, houseController.getHousePrice, censusController.getPopulation, houseBlender, (req, res) => {
-  return res.status(200).json(res.locals.houseBlend);
+app.get('/coffee/:zipCode', coffeeShopController.getCoffeeShops, houseController.getHousePrice, censusController.getPopulation, houseBlender, dbController.addZipToDB, (req, res) => {
+    return res.status(200).json(res.locals.houseBlend);
 })
 
 //GLOBAL ERROR HANDLER NEEDED.

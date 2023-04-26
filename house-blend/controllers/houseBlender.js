@@ -15,15 +15,14 @@
  *  As housing prices decreases and coffee shop numbers remain strong, we will also show a desirable score
  * 
  */
-
+ 
 export default function houseBlender(req, res, next){
     //pop, coffeeShops, medPrice
     const {totalCoffeeShops, population, avgHousePrice} = res.locals;
 
-    let coffeeShopPerPerson = population / totalCoffeeShops
-    let houseBlendScore = avgHousePrice / coffeeShopPerPerson
+    let brewer = population * avgHousePrice / totalCoffeeShops
+    res.locals.houseBlend = (brewer/1000).toFixed(2);
 
-    res.locals.houseBlend = (houseBlendScore/1000).toFixed(2);
     return next();
 
 }
