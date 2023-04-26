@@ -13,10 +13,9 @@ const PORT = 3000;
 
 app.use(express.json());
 
-
 // app.use('/',(req,res) => {
 //   return res.send('HELLO')
-// })
+// }
 
 
 app.get('/coffee/:zipCode', coffeeShopController.getCoffeeShops, houseController.getHousePrice, censusController.getPopulation, houseBlender, (req, res) => {
