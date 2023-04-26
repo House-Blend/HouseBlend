@@ -32,6 +32,11 @@ const pool = new Pool({
  * 
  * */ 
 
+//ADD ADDITONAL ZIP CODES TO EXISTING USER
+// UPDATE table_name
+// SET column_name = column_name || ARRAY[new_integer];
+
+
 
 
 module.exports = {
