@@ -15,7 +15,7 @@
  *  As housing prices decreases and coffee shop numbers remain strong, we will also show a desirable score
  * 
  */
-
+ 
 export default function houseBlender(req, res, next){
     //pop, coffeeShops, medPrice
     const {totalCoffeeShops, population, avgHousePrice} = res.locals;
